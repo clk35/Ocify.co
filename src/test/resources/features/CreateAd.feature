@@ -1,8 +1,8 @@
 Feature: Create an Advertisement Functionality
 
   As a user, I should be able to create an Advert, so that end-customer can search for my advertisement
-  @wip @categorySelection
-  Scenario: Select Category functionality verification
+   @createAd
+  Scenario: Create an Advertisement functionality verification
     Given user is already logged in
     Given user is already on his-her own market
     When  user clicks on Post Ad button
@@ -21,6 +21,11 @@ Feature: Create an Advertisement Functionality
     And   user clicks on continue button on Preview Page
     And   user doesn't buy any doping on the Doping Page
     Then  the advertisement should be shown on the page after searching for it
+
+
+
+
+
 
 
 

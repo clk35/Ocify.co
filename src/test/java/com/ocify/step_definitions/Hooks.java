@@ -5,6 +5,7 @@ import com.ocify.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import org.junit.Ignore;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
@@ -14,6 +15,7 @@ public class Hooks {
     public void setup(){
         Driver.getDriver().get(ConfigurationReader.getProperty("home.page"));
     }
+
 
     /*
     @After//cucumber-java dan cek not from j unit
@@ -34,6 +36,9 @@ public class Hooks {
     }
 
 
+
      */
+
+
 
 }

@@ -49,9 +49,29 @@ for given duration
             }
         }
 
-        //5. Assert:Title contains “expectedInTitle”
+
+
+            //5. Assert:Title contains “expectedInTitle”
         String actualTitle = Driver.getDriver().getTitle();
         Assert.assertTrue(actualTitle.contains(expectedInTitle));
+    }
+
+
+    public static void switchWindow(String expectedInUrl){
+
+        Set<String> allWindowsHandles = Driver.getDriver().getWindowHandles();
+
+        for (String each : allWindowsHandles) {
+
+            Driver.getDriver().switchTo().window(each);
+
+            System.out.println("Current URL: " + Driver.getDriver().getCurrentUrl());
+
+            if (Driver.getDriver().getCurrentUrl().contains(expectedInUrl)){
+                break;
+            }
+        }
+
     }
 
     /*

@@ -16,12 +16,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class SelectionOfCategory_step_definition {
+public class CreateAd_step_definition {
     C2CHomePage c2CHomePage = new C2CHomePage();
     ProfilePage profilePage = new ProfilePage();
     CreateAdPage createAdPage = new CreateAdPage();
@@ -34,7 +32,7 @@ public class SelectionOfCategory_step_definition {
 
         loginPage.siteManagementLink.click();
         profilePage.linkToC2c.click();
-        BrowserUtils.sleep(1);
+        //BrowserUtils.sleep(1);
 
     }
 
