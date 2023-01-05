@@ -1,5 +1,6 @@
 package com.ocify.step_definitions;
 
+import com.github.javafaker.Faker;
 import com.ocify.pages.C2CHomePage;
 import com.ocify.pages.CreateAdPage;
 import com.ocify.pages.LoginPage;
@@ -11,13 +12,22 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SelectionOfCategory_step_definition {
     C2CHomePage c2CHomePage = new C2CHomePage();
     ProfilePage profilePage = new ProfilePage();
     CreateAdPage createAdPage = new CreateAdPage();
     LoginPage loginPage = new LoginPage();
+
+    Faker faker = new Faker();
 
     @Given("user is already on his-her own market")
     public void user_is_already_on_his_her_own_market() {
@@ -89,6 +99,78 @@ public class SelectionOfCategory_step_definition {
     public void user_should_be_on_the_listing_details_step() {
         Assert.assertTrue(createAdPage.textOfListingDetail.isDisplayed());
     }
+
+
+
+
+    @When("user clicks on Contact Information")
+    public void user_clicks_on_contact_information() {
+        createAdPage.howCanBeContactedQuestion.click();
+    }
+    @When("user types title {string}")
+    public void user_types_title(String titleOfAd) {
+        createAdPage.titleOfAd.sendKeys(titleOfAd);
+
+    }
+    @When("user types price {int} and standard price {int}")
+    public void user_types_price_and_standard_price(Integer price, Integer standardPrice) {
+       createAdPage.price.sendKeys(price+"");
+       createAdPage.standardPrice.sendKeys(standardPrice+"");
+    }
+    @When("user adds description about product")
+    public void user_adds_description_about_product() {
+       createAdPage.adDescription.sendKeys(faker.lorem().paragraph());
+       BrowserUtils.sleep(2);
+    }
+    @When("user uploads product photo")
+    public void user_uploads_product_photo() {
+
+
+        // disable the click event on an `<input>` file
+        ((JavascriptExecutor)Driver.getDriver()).executeScript(
+                "HTMLInputElement.prototype.click = function() {                     " +
+                        "  if(this.type !== 'file') HTMLElement.prototype.click.call(this);  " +
+                        "};                                                                  " );
+
+        // trigger the upload
+        createAdPage.photoUploadBtn.click();
+        BrowserUtils.sleep(1);
+
+        // assign the file to the `<input>`
+        Driver.getDriver().findElement(By.cssSelector("input[type=file]"))
+                .sendKeys("C:\\Users\\musta\\OneDrive\\Desktop\\PhotoForOcify\\waschmaschine.jpg");
+        BrowserUtils.sleep(1);
+        //createAdPage.photoUploadBtn.sendKeys("C:\\Users\\musta\\OneDrive\\Desktop\\PhotoForOcify\\waschmaschine.jpg");
+
+
+
+
+    }
+    @When("user clicks on publish button")
+    public void user_clicks_on_publish_button() {
+        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);",createAdPage.publishBtn);
+        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click();", createAdPage.publishBtn);
+
+
+    }
+    @When("user clicks on continue button on Preview Page")
+    public void user_clicks_on_continue_button_on_preview_page() {
+        createAdPage.continueWithPreview.click();
+    }
+    @When("user doesn't buy any doping on the Doping Page")
+    public void user_doesn_t_buy_any_doping_on_the_doping_page() {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),10);
+        wait.until(ExpectedConditions.elementToBeClickable(createAdPage.iDontWantToUpgradeBtn));
+        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);",createAdPage.iDontWantToUpgradeBtn);
+        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click();", createAdPage.iDontWantToUpgradeBtn);
+    }
+    @Then("the advertisement should be shown on the page after searching for it")
+    public void the_advertisement_should_be_shown_on_the_page_after_searching_for_it() {
+        c2CHomePage.searchBox.sendKeys("Bosch 9 kg Camasir Makinesi"+Keys.ENTER);
+
+        Assert.assertTrue(c2CHomePage.advertisement.isDisplayed());
+    }
+
 
 
 }

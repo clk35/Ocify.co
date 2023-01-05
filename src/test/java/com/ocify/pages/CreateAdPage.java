@@ -47,29 +47,29 @@ public class CreateAdPage {
     @FindBy(id = "name_en")
     public WebElement titleOfAd;
 
-    @FindBy(xpath = "(//div[@class='d-flex'])[1]")
+    @FindBy(xpath = "(//div[@class='d-flex'])[1]/input")
     public WebElement price;
 
-    @FindBy(xpath = "(//div[@class='d-flex'])[2]")
+    @FindBy(xpath = "(//div[@class='d-flex'])[2]//input")
     public WebElement standardPrice;
 
     @FindBy(xpath = "//div[@id='redactor-uuid-0']")
     public WebElement adDescription;
 
-    @FindBy(xpath = "//i[@class='fa fa-upload ']")
+    @FindBy(xpath = "//div[@class='dropzone dz-clickable']")
     public WebElement photoUploadBtn;
 
-    @FindBy(xpath = "//button[@class='btn btn-sm btn-success  ']")
+    @FindBy(css = "div.checkbox.section.agreement>button")
     public WebElement publishBtn;
 
     //Step3------------>Preview
 
-    @FindBy(xpath = "(//a[@href='https://mustafa.ocify.pro/doping/5'])[1]")
+    @FindBy(xpath = "(//a[@class='btn preview-continue shadow-sm ml-4'])[1]")
     public WebElement continueWithPreview;
 
     //Step4------------>Doping
 
-    @FindBy(xpath = "//a[@href='https://mustafa.ocify.pro/ad/5']")
+    @FindBy(xpath = "//a[@class='btn btn-danger px-4 mr-2']")
     public WebElement iDontWantToUpgradeBtn;
 
 
