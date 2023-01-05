@@ -1,7 +1,7 @@
 Feature: Create an account on the page
 
   As an user, I should be able to sign up, so that I can log in
-@wip
+
   Scenario: Sign up on the page
     Given user is already home page
     When  user clicks on Sign Up button

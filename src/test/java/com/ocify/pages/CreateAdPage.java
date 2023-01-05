@@ -12,6 +12,16 @@ public class CreateAdPage {
     public CreateAdPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
+    //Step0 Authentication
+    @FindBy(id="email")
+    public WebElement inputMail;
+
+    @FindBy(id="password")
+    public WebElement inputPassword;
+
+    @FindBy(xpath="//i[@class='fas fa-key']")
+    public WebElement loginBtn;
+
 
     //Step1  ----->Category Selection
     @FindBy(xpath = "//ul[@id='cat1']/li")
@@ -27,6 +37,9 @@ public class CreateAdPage {
     public WebElement continueBtn;
 
     //Step2 -------->Listing Details
+
+    @FindBy(xpath = "//h1[.='Listing Details']")
+    public WebElement textOfListingDetail;
 
     @FindBy(xpath = "(//input[@class='mr-1'])[2]")
     public WebElement howCanBeContactedQuestion;

@@ -14,7 +14,7 @@ public class Hooks {
     public void setup(){
         Driver.getDriver().get(ConfigurationReader.getProperty("home.page"));
     }
-
+    /*
     @After//cucumber-java dan cek not from j unit
     public void tearDownScenario(Scenario scenario){
         //Take screenshot
@@ -31,4 +31,6 @@ public class Hooks {
 //     System.out.println("====Closing browser using cucumber @After");
 //     System.out.println("=======Scenario ended//Take screenshot ");
     }
+
+     */
 }
