@@ -17,7 +17,7 @@ public class Hooks {
     }
 
 
-    /*
+
     @After//cucumber-java dan cek not from j unit
     public void tearDownScenario(Scenario scenario){
         //Take screenshot
@@ -37,7 +37,7 @@ public class Hooks {
 
 
 
-     */
+
 
 
 
