@@ -134,9 +134,11 @@ public class CreateAd_step_definition {
         createAdPage.photoUploadBtn.click();
         BrowserUtils.sleep(1);
 
+        //C:\Users\musta\OneDrive\Desktop\PhotoForOcify\waschmaschine.jpg
+
         // assign the file to the `<input>`
         Driver.getDriver().findElement(By.cssSelector("input[type=file]"))
-                .sendKeys("C:\\Users\\musta\\OneDrive\\Desktop\\PhotoForOcify\\waschmaschine.jpg");
+                .sendKeys("https://i.otto.de/i/otto/83186cae-7b4f-5605-b75d-00f34c8c8cc5?w=1977&h=2500");
         BrowserUtils.sleep(1);
         //createAdPage.photoUploadBtn.sendKeys("C:\\Users\\musta\\OneDrive\\Desktop\\PhotoForOcify\\waschmaschine.jpg");
 
