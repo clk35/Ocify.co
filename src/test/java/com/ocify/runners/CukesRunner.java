@@ -19,7 +19,7 @@ import org.junit.runner.RunWith;
         glue ="com/ocify/step_definitions",
         dryRun = false,
         publish = true,
-        tags = "@logout"
+        tags = "@smoke1"
 
 )
 public class CukesRunner {
