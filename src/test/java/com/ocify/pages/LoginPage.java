@@ -31,7 +31,7 @@ public class LoginPage {
     @FindBy(xpath = "//img[@alt='Profile Photo']")
     public WebElement avatarProfile;
 
-    @FindBy(xpath = "(//a[@href='https://ocify.co/logout'])[1]")
+    @FindBy(xpath = "(//a[@href='https://ocify.co/logout'])[2]")
     public WebElement logoutBtn;
 
     public  void login(String email, String password){
