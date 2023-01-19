@@ -1,4 +1,4 @@
-@login @logout
+@login
 Feature: Login and Logout Functionality
 
   As an user, i should be able to login and logout successfully
@@ -11,7 +11,7 @@ Feature: Login and Logout Functionality
     And   user enters  password "12345678"
     Then  user should be logged in
 
-
+  @logout
   Scenario:User logs out from the page
     Given user is already logged in
     When  user clicks on profile avatar

@@ -18,7 +18,8 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue ="com/ocify/step_definitions",
         dryRun = false,
-        publish = true
+        publish = true,
+        tags = "@logout"
 
 )
 public class CukesRunner {

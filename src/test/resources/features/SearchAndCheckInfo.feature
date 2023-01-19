@@ -2,7 +2,7 @@ Feature: Search for the created Advertisement and verify if the information is c
 
   As an user, i should be able to search for a product so that i see information about the product
 
-  @adInformation @wip
+  @smoke
   Scenario: Search and find the created Advertisement functionality verification
     Given user is already logged in
     Given user is already on his-her own market
