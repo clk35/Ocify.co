@@ -19,6 +19,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 public class CreateAd_step_definition {
     C2CHomePage c2CHomePage = new C2CHomePage();
     ProfilePage profilePage = new ProfilePage();
@@ -121,7 +124,7 @@ public class CreateAd_step_definition {
        BrowserUtils.sleep(2);
     }
     @When("user uploads product photo")
-    public void user_uploads_product_photo() {
+    public void user_uploads_product_photo() throws MalformedURLException {
 
 
         // disable the click event on an `<input>` file
@@ -134,12 +137,20 @@ public class CreateAd_step_definition {
         createAdPage.photoUploadBtn.click();
         BrowserUtils.sleep(1);
 
-        //C:\Users\musta\OneDrive\Desktop\PhotoForOcify\waschmaschine.jpg
+        String filePath = null;
+        ClassLoader classLoader = getClass().getClassLoader();
+        try {
+            filePath= classLoader.getResource("waschmaschine.jpg").getPath();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        filePath=filePath.substring(1);
+
 
         // assign the file to the `<input>`
-//        Driver.getDriver().findElement(By.cssSelector("input[type=file]"))
-//                .sendKeys("C:\\Users\\musta\\OneDrive\\Desktop\\PhotoForOcify\\waschmaschine.jpg");
-//        BrowserUtils.sleep(1);
+        Driver.getDriver().findElement(By.cssSelector("input[type=file]"))
+                .sendKeys(filePath);
+        BrowserUtils.sleep(1);
         //createAdPage.photoUploadBtn.sendKeys("C:\\Users\\musta\\OneDrive\\Desktop\\PhotoForOcify\\waschmaschine.jpg");
 
 
