@@ -19,6 +19,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -137,8 +138,10 @@ public class CreateAd_step_definition {
         createAdPage.photoUploadBtn.click();
         BrowserUtils.sleep(1);
 
-        String filePath = null;
+
         ClassLoader classLoader = getClass().getClassLoader();
+        /*
+        String filePath = null;
         try {
             filePath= classLoader.getResource("waschmaschine.jpg").getPath();
         } catch (Exception e) {
@@ -146,10 +149,18 @@ public class CreateAd_step_definition {
         }
         filePath=filePath.substring(1);
 
+        System.out.println("filePath = " + filePath);
+
+         */
+
+
+        File file = new File(classLoader.getResource("waschmaschine.jpg").getFile());
+        System.out.println(file.getAbsolutePath());
+
 
         // assign the file to the `<input>`
         Driver.getDriver().findElement(By.cssSelector("input[type=file]"))
-                .sendKeys(filePath);
+                .sendKeys(file.getAbsolutePath());
         BrowserUtils.sleep(1);
         //createAdPage.photoUploadBtn.sendKeys("C:\\Users\\musta\\OneDrive\\Desktop\\PhotoForOcify\\waschmaschine.jpg");
 
