@@ -137,9 +137,9 @@ public class CreateAd_step_definition {
         //C:\Users\musta\OneDrive\Desktop\PhotoForOcify\waschmaschine.jpg
 
         // assign the file to the `<input>`
-        Driver.getDriver().findElement(By.cssSelector("input[type=file]"))
-                .sendKeys("");
-        BrowserUtils.sleep(1);
+//        Driver.getDriver().findElement(By.cssSelector("input[type=file]"))
+//                .sendKeys("C:\\Users\\musta\\OneDrive\\Desktop\\PhotoForOcify\\waschmaschine.jpg");
+//        BrowserUtils.sleep(1);
         //createAdPage.photoUploadBtn.sendKeys("C:\\Users\\musta\\OneDrive\\Desktop\\PhotoForOcify\\waschmaschine.jpg");
 
 
