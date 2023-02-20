@@ -1,9 +1,9 @@
-@login
+
 Feature: Login and Logout Functionality
 
   As an user, i should be able to login and logout successfully
 
-
+  @login
   Scenario: User logins on the home page
     Given user is already home page
     When  user clicks on login button

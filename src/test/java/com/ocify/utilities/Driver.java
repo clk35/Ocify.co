@@ -66,8 +66,11 @@ public class Driver {
                     break;
                 case "chrome-headless":
                     WebDriverManager.chromedriver().setup();
-                    driverPool.set(new ChromeDriver(new ChromeOptions().setHeadless(true)));
-                    driverPool.get().manage().window().maximize();
+                    driverPool.set(new ChromeDriver(new ChromeOptions().setHeadless(true).addArguments("window-size=1366,768")));
+//                    ChromeOptions chromeOptions = new ChromeOptions();
+//                    chromeOptions.addArguments("headless");
+//                    chromeOptions.addArguments("window-size=1920,1080");
+                    //driverPool.get().manage().window().maximize();
                     driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
                 case "firefox":
