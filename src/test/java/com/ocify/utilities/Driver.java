@@ -71,6 +71,7 @@ public class Driver {
 //                    chromeOptions.addArguments("headless");
 //                    chromeOptions.addArguments("window-size=1920,1080");
                     //driverPool.get().manage().window().maximize();
+                    new ChromeOptions().addArguments("--no-sandbox").addArguments("--disable-dev-shm-usage");
                     driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
                 case "firefox":
