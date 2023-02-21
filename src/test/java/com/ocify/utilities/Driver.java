@@ -66,12 +66,13 @@ public class Driver {
                     break;
                 case "chrome-headless":
                     WebDriverManager.chromedriver().setup();
-                    driverPool.set(new ChromeDriver(new ChromeOptions().setHeadless(true).addArguments("window-size=1366,768")));
+                    driverPool.set(new ChromeDriver(new ChromeOptions().setHeadless(true).addArguments("window-size=1366,768")
+                            .addArguments("--no-sandbox").addArguments("--disable-dev-shm-usage")));
 //                    ChromeOptions chromeOptions = new ChromeOptions();
 //                    chromeOptions.addArguments("headless");
 //                    chromeOptions.addArguments("window-size=1920,1080");
                     //driverPool.get().manage().window().maximize();
-                    new ChromeOptions().addArguments("--no-sandbox").addArguments("--disable-dev-shm-usage");
+                    //new ChromeOptions().addArguments("--no-sandbox").addArguments("--disable-dev-shm-usage");
                     driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
                 case "firefox":
