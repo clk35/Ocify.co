@@ -67,7 +67,7 @@ public class Driver {
                 case "chrome-headless":
                     WebDriverManager.chromedriver().setup();
                     driverPool.set(new ChromeDriver(new ChromeOptions().setHeadless(true).addArguments("window-size=1366,768")
-                            .addArguments("--no-sandbox").addArguments("--disable-dev-shm-usage")));
+                            .addArguments("--no-sandbox").addArguments("--disable-dev-shm-usage").addArguments("--remote-debugging-port=9222")));
 //                    ChromeOptions chromeOptions = new ChromeOptions();
 //                    chromeOptions.addArguments("headless");
 //                    chromeOptions.addArguments("window-size=1920,1080");
